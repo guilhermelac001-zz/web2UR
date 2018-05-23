@@ -1,0 +1,34 @@
+{
+  "name": "web2ur",
+  "version": "0.0.1",
+  "description": "WebSocket Connection to UR Robots",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "browserify": "^16.1.1",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
+    "watchify": "^3.11.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "cordova-http": "^0.3.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "index.js": "0.0.3",
+    "jquery": "^3.3.1",
+    "request": "^2.85.0",
+    "socket.io": "^2.0.4",
+    "ws": "^5.0.0"
+  }
+}
