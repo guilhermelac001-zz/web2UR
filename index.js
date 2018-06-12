@@ -19,7 +19,7 @@ app.use(cors())
 var wss = net.createServer();
 wss.on('connection', handleConnection);
 
-wss.listen(30000, function() { // esse 30000 é a porta do robo, é nesse endereço que ele vai fala com o robo
+wss.listen(8000, function() { // esse 30000 é a porta do robo, é nesse endereço que ele vai fala com o robo
 	console.log('server listening to %j', wss.address());
 });
 
@@ -59,7 +59,14 @@ app.post("/move_position", function(request, response) { // recebimento do post 
 	// 	console.log(request.body)
 	// 	var funcao = request.body.funcao;
 	 	
-	 	connection.write(request.body.message)
+	 	connection.write(request.body.message, 'utf8',function(){
+			console.log('ENVIOU MENSAGEM: ' + request.body.message);
+			setTimeout(function(){
+				connection.write("(" + request.body.id + ")", function(){
+					console.log('ENVIOU ID: ' + parseFloat(request.body.id));
+				});
+			},2000);
+		})
 
 	}
 	 app.get("/move_position")
@@ -106,6 +113,6 @@ app.get("/", function(request, response) {
 	});
 })
 
-app.listen(2000, function() {
-	console.log('Listening on port 2000')
+app.listen(8080, function() {
+	console.log('Listening on port 8080')
 })
